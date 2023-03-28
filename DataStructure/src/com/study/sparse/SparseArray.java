@@ -1,4 +1,4 @@
-package com.y.sparse;
+package com.study.sparse;
 
 public class SparseArray {
 
