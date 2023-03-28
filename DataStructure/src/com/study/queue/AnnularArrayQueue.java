@@ -10,7 +10,7 @@ public class AnnularArrayQueue {
         boolean flag = true;
         while (flag){
             try{
-                System.out.print("a:add\ts:showAll\tg:get\t 其他:exit \t:");
+                System.out.print("a:add\ts:showAll\tg:get\t 其他:exit:\t");
                 chat = scanner.next().charAt(0);
                 switch (chat){
                     case 'a':
