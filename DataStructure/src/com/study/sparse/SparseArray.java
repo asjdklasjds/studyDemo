@@ -1,5 +1,9 @@
 package com.study.sparse;
 
+/**
+ * 稀疏数组
+ * @author yan
+ */
 public class SparseArray {
 
     // 白棋标识

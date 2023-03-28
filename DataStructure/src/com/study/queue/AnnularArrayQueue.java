@@ -2,6 +2,10 @@ package com.study.queue;
 
 import java.util.Scanner;
 
+/**
+ * 使用数组实现环形队列
+ * @author yan
+ */
 public class AnnularArrayQueue {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);

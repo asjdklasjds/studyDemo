@@ -2,6 +2,10 @@ package com.study.queue;
 
 import java.util.Scanner;
 
+/**
+ * 使用数组实现队列 不能复用！
+ * @author yan
+ */
 public class ArrayQueue {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
