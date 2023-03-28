@@ -7,6 +7,7 @@ public class AnnularArrayQueue {
         Scanner scanner = new Scanner(System.in);
         AnnularQueue queue = new AnnularQueue(3);
         int chat = ' ';
+        System.out.println("1");
         boolean flag = true;
         while (flag){
             try{
