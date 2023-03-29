@@ -30,6 +30,14 @@ public class SingleLinkedListDemo {
 
         singleLinkedList.list();
 
+
+        HerdNode delNode4 = new HerdNode(4,"黑人","sadddd");
+        System.out.println("删除后的链表");
+        singleLinkedList.delete(newNode4);
+
+
+        singleLinkedList.list();
+
     }
 }
 
@@ -96,14 +104,16 @@ class SingleLinkedList{
             System.out.println("当前链表为空~~");
             return;
         }
-        HerdNode temp = head.next;
+        HerdNode temp = head;
         while (true){
-            if (temp == null){
+            if (temp.next == null){
                 System.out.println("未找到传入的节点！！");
                 break;
             }
-            if (temp.no == delNode.no){
-
+            HerdNode frontNode = temp;
+            if (temp.next.no == delNode.no){
+                frontNode.next = temp.next.next;
+                break;
             }
             temp = temp.next;
         }
