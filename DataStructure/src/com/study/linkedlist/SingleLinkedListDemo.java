@@ -33,7 +33,11 @@ public class SingleLinkedListDemo {
 
         HerdNode delNode4 = new HerdNode(2,"黑人","sadddd");
         System.out.println("删除后的链表");
-        singleLinkedList.delete(delNode4);
+//        singleLinkedList.delete(delNode4);
+        singleLinkedList.delete(new HerdNode(1,"",""));
+        singleLinkedList.delete(new HerdNode(4,"",""));
+        singleLinkedList.delete(new HerdNode(3,"",""));
+        singleLinkedList.delete(new HerdNode(2,"",""));
 
 
         singleLinkedList.list();
