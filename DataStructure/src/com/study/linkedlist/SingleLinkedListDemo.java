@@ -31,9 +31,9 @@ public class SingleLinkedListDemo {
         singleLinkedList.list();
 
 
-        HerdNode delNode4 = new HerdNode(4,"黑人","sadddd");
+        HerdNode delNode4 = new HerdNode(2,"黑人","sadddd");
         System.out.println("删除后的链表");
-        singleLinkedList.delete(newNode4);
+        singleLinkedList.delete(delNode4);
 
 
         singleLinkedList.list();
