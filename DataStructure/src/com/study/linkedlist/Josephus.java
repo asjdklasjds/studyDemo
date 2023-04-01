@@ -12,6 +12,10 @@ public class Josephus {
 class AnnularSingeLinkedList{
     private Boy first;
 
+    private void isFirstNull(){
+        if (Objects.isNull(first)) throw new NullPointerException();
+    }
+
     public AnnularSingeLinkedList(int annularSize){
         Boy temp = null;
         for (int i = 1; i <= annularSize; i++) {
@@ -27,11 +31,16 @@ class AnnularSingeLinkedList{
     }
 
     public void showAll(){
+        isFirstNull();
         Boy temp = first;
         do {
             System.out.println(temp);
             temp = temp.getNext();
         } while (!Objects.equals(temp,first));
+    }
+
+    public void josephusOutAnnular(int startNo,int numOfTime){
+
     }
 }
 
