@@ -4,8 +4,10 @@ import java.util.Objects;
 
 public class Josephus {
     public static void main(String[] args) {
-        AnnularSingeLinkedList annularSingeLinkedList = new AnnularSingeLinkedList(10);
+        AnnularSingeLinkedList annularSingeLinkedList = new AnnularSingeLinkedList(5);
         annularSingeLinkedList.showAll();
+
+        annularSingeLinkedList.josephusOutAnnular(1,2);
     }
 }
 
@@ -40,7 +42,31 @@ class AnnularSingeLinkedList{
     }
 
     public void josephusOutAnnular(int startNo,int numOfTime){
+        Boy pre = first;
+        // 得到 first 前一个节点
+        while (!Objects.equals(pre.getNext(),first)) pre = pre.getNext();
 
+        for (int i = 0; i < startNo-1; i++) {
+            pre = pre.getNext();
+            first = first.getNext();
+        }
+        int ofTime = 1;
+        while (true){
+            if (pre==first){
+                System.out.println("==> " + first);
+                first = null;
+                break;
+            }
+            if (ofTime == numOfTime){
+                System.out.println("==> " + first);
+                first = first.getNext();
+                pre.setNext(first);
+                ofTime = 1;
+            }
+            pre = pre.getNext();
+            first = first.getNext();
+            ofTime++;
+        }
     }
 }
 
