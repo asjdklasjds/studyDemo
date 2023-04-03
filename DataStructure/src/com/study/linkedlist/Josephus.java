@@ -45,18 +45,21 @@ class AnnularSingeLinkedList{
         Boy pre = first;
         // 得到 first 前一个节点
         while (!Objects.equals(pre.getNext(),first)) pre = pre.getNext();
-
+        // 将first 与pre都走到 startNo位置
         for (int i = 0; i < startNo-1; i++) {
             pre = pre.getNext();
             first = first.getNext();
         }
+        // 按照 从startNo开始 上面已经将first、pre走到startNo位置了  按照 numOfTime次出链表
         int ofTime = 1;
         while (true){
+            // 如果 pre==first 则代表链表已经只有最后一条数据了
             if (pre==first){
                 System.out.println("==> " + first);
                 first = null;
                 break;
             }
+            // 判断是否 走了numOfTime次  如果条件成立则取出当前数据
             if (ofTime == numOfTime){
                 System.out.println("==> " + first);
                 first = first.getNext();
