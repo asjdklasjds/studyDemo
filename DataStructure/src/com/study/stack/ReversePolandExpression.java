@@ -29,6 +29,7 @@ public class ReversePolandExpression {
             if (ele.matches("\\d+")){
                 stack.push(ele);
             }else {
+                // list中只会有数字和运算符 出现运算符则取出栈中的两个数据进行计算
                 int num2 = Integer.valueOf(stack.pop());
                 int num1 = Integer.valueOf(stack.pop());
                 int res = 0;
