@@ -49,6 +49,14 @@ class ArrayStack{
 
     private int[] stack;
 
+    public int[] getStack() {
+        return stack;
+    }
+
+    public int getTop() {
+        return top;
+    }
+
     public ArrayStack(int size){
         this.size = size;
         this.stack = new int[this.size];
