@@ -12,9 +12,7 @@ public class BubbleSort {
     static int arrSize = 80000;
     public static void main(String[] args) {
         int arr[] = new int[arrSize];
-        for (int i = 0; i < arrSize; i++) {
-            arr[i] = (int) (Math.random() * 80000000);
-        }
+        CommonUtil.paddingArr(arr);
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         System.out.println(sdf.format(new Date()));
         bubble(arr);
