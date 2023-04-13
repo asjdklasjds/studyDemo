@@ -16,7 +16,7 @@ import java.util.Date;
  * @author yan
  */
 public class QuickSort {
-    static int arrSize = 80000000;
+    static int arrSize = 8000000;
     public static void main(String[] args) {
 //        int[] arr = {23,65,12,23,3,-342};
         int[] arr = new int[arrSize];
