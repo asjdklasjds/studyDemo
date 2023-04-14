@@ -18,12 +18,13 @@ import java.util.Date;
 public class QuickSort {
     static int arrSize = 8000000;
     public static void main(String[] args) {
-//        int[] arr = {23,65,12,23,3,-342};
-        int[] arr = new int[arrSize];
-        CommonUtil.paddingArr(arr);
-        System.out.println(CommonUtil.sdf.format(new Date()));
+        int[] arr = {23,65,12,23,3,-342,4,23,432,654,203,2,-349,234,543,-231};
+//        int[] arr = new int[arrSize];
+//        CommonUtil.paddingArr(arr);
+//        System.out.println(CommonUtil.sdf.format(new Date()));
+        System.out.println(Arrays.toString(arr));
         quickSort(arr,0,arr.length-1);
-        System.out.println(CommonUtil.sdf.format(new Date()));
+//        System.out.println(CommonUtil.sdf.format(new Date()));
     }
 
     /**
@@ -31,7 +32,7 @@ public class QuickSort {
      * @param arr 需要排序的数组
      */
     private static void quickSort(int[] arr,int leftIndex,int rightIndex){
-        int pivot = arr[(leftIndex + rightIndex) / 2];
+        int pivot = arr[leftIndex];
         int l = leftIndex;
         int r = rightIndex;
         int temp = 0;
@@ -40,7 +41,7 @@ public class QuickSort {
             while (pivot < arr[r]) r--;
             // 找到比 pivot 小的值
             while (pivot > arr[l]) l++;
-            // 没有过界则交换
+            // 停止循环
            if (l >= r) break;
            // 交换
            temp = arr[l];
@@ -51,6 +52,7 @@ public class QuickSort {
             // 如果交换完成之后 arr[rightPoint] 等于pivot leftPoint++ 不然会出现死循环
             if (arr[r] == pivot) l++;
         }
+        System.out.println(Arrays.toString(arr));
         if (l == r){
             l++;
             r--;
