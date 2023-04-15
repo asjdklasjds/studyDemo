@@ -1,4 +1,4 @@
-package com.study.sortAlgorithm;
+package com.study.sortalgorithm;
 
 import java.text.SimpleDateFormat;
 

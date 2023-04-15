@@ -1,11 +1,7 @@
-package com.study.sortAlgorithm;
+package com.study.sortalgorithm;
 
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.util.Arrays;
 import java.util.Date;
-import java.util.Locale;
 
 /**
  * 希尔排序  又叫（缩小增量排序）
