@@ -12,7 +12,7 @@ import java.util.List;
 public class BinarySearch {
     public static void main(String[] args) {
         int[] arr = {12,34,54,65,65,65,68,69,77,78};
-        int binarySearchOne = binarySearchOne(arr, 0, arr.length - 1, 65);
+        int binarySearchOne = binarySearchOne(arr, 0, arr.length - 1, 12);
         System.out.println(binarySearchOne);
         List<Integer> list = binarySearchMany(arr, 0, arr.length - 1, 65);
         System.out.println(list);
@@ -27,6 +27,7 @@ public class BinarySearch {
      * @return 返回其找到的下标值  未找到则返回 -1
      */
     private static int binarySearchOne(int[] arr, int left, int right, int finalVal){
+        System.out.println("===");
         // 没有找到 finalVal 值
         if (left > right) return -1;
         // 取数组的中间值
