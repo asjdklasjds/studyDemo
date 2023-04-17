@@ -1,4 +1,4 @@
-package com.study.sortalgorithm;
+package com.study.searchalgorithm;
 
 import java.util.Arrays;
 
