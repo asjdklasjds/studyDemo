@@ -2,10 +2,9 @@ package com.study.tree;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.stream.Collectors;
 
 /**
- * 赫夫曼数（哈夫慢数|霍夫曼数）
+ * 赫夫曼数（哈夫慢数|霍夫曼数）--> 最优二叉树
  * 如何创建一棵赫夫曼数
  * wpl值最小的是霍夫曼数
  * wpl：树的所有叶结点的带权路径长度之和，称为树的带权路径长度表示为WPL。
