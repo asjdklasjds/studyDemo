@@ -18,13 +18,22 @@ public class BinarySortTreeDemo {
         System.out.println(binarySortTreeNode.val);
 //        BinarySortTreeNode binarySortTreeNode1 = binarySortTree.searchParentNode(4);
 //        System.out.println(binarySortTreeNode1.val);
-        binarySortTree.delLeafNode(5);
-        binarySortTree.delLeafNode(9);
-        binarySortTree.delLeafNode(6);
-        binarySortTree.delLeafNode(2);
-        binarySortTree.delLeafNode(3);
-        binarySortTree.delLeafNode(1);
-        binarySortTree.delLeafNode(4);
+//        binarySortTree.delLeafNode(5);
+//        binarySortTree.delLeafNode(9);
+//        binarySortTree.delLeafNode(6);
+//        binarySortTree.delLeafNode(2);
+//        binarySortTree.delLeafNode(3);
+//        binarySortTree.delLeafNode(1);
+//        binarySortTree.delLeafNode(4);
+//        binarySortTree.delNode(1);
+//        binarySortTree.delNode(2);
+//        binarySortTree.delNode(3);
+//        binarySortTree.delNode(4);
+//        binarySortTree.delNode(5);
+//        binarySortTree.delNode(6);
+//        binarySortTree.delNode(9);
+        binarySortTree.delete(1);
+        System.out.println(binarySortTree.getRoot());
         System.out.println("删除后的二叉排序数");
         binarySortTree.infixOrder();
     }
@@ -36,6 +45,111 @@ public class BinarySortTreeDemo {
 class BinarySortTree{
     private BinarySortTreeNode root;
 
+    public BinarySortTreeNode getRoot() {
+        return root;
+    }
+
+    public void delete(int val){
+        deleteNode(root,val);
+    }
+
+    /**
+     * TODO 简化delNode()方法 有问题 删除不了
+     * @param val
+     * @return
+     */
+    private BinarySortTreeNode deleteNode(BinarySortTreeNode root, int val){
+        BinarySortTreeNode node = root;
+        if (node == null)
+            return null;
+        // 往左边递归查找
+        if (node.val > val){
+            node = deleteNode(node.left,val);
+        }
+        // 往右边递归查找
+        else if (node.val < val){
+            node = deleteNode(node.right,val);
+        }
+        // 找到要删除的当前节点
+        else {
+            // 当前节点是叶子节点 直接将当前节点置空
+            if (node.left == null && node.right == null){
+                node = null;
+                return null;
+            }
+            // 当前节点左右都有子节点
+            else if (node.left != null && node.right != null){
+                BinarySortTreeNode maxNode = node.findMaxNode();
+                node.val = maxNode.val;
+                node.left = deleteNode(node.left, maxNode.val);
+            }
+            // 当前节点只有左边 或者 右边 有节点
+            else {
+                if (node.left != null){
+                    node = node.left;
+                }else {
+                    node = node.right;
+                }
+            }
+        }
+        return root;
+    }
+
+    /**
+     * 删除二叉排序数中的节点
+     * @param val 需要删除节点的val值
+     */
+    public void delNode(int val){
+        // 如果当前root节点等于null 或者传入的val值等于 root.val值则直接将root置空 返回
+        if (Objects.isNull(root) || (root.val == val && Objects.isNull(root.left) && Objects.isNull(root.right))){
+            root = null;
+            return;
+        }
+        // 得到需要删除节点
+        BinarySortTreeNode targetNode = searchNode(val);
+        // 如果需要删除的节点未找到则直接返回
+        if (Objects.isNull(targetNode))
+            return;
+        // 得到需要删除节点的父节点
+        BinarySortTreeNode searchParentNode = searchParentNode(targetNode.val);
+        // 如果targetNode为叶子节点才执行下面逻辑
+        if (Objects.isNull(targetNode.left) && Objects.isNull(targetNode.right)) {
+            //targetNode 节点为 searchParentNode 的左子节点 否则为右子节点
+            if (!Objects.isNull(searchParentNode.left) && searchParentNode.left.val == val)
+                searchParentNode.left = null;
+            else
+                searchParentNode.right = null;
+        }else if (!Objects.isNull(targetNode.left) && !Objects.isNull(targetNode.right)){
+            //  两边都有子节点
+            BinarySortTreeNode maxNode = targetNode.findMaxNode();
+            delNode(maxNode.val);
+            targetNode.val = maxNode.val;
+        }else {
+            // 只有左边有子节点 或者 只有右边有子节点
+            if (!Objects.isNull(targetNode.left)){
+                if (!Objects.isNull(searchParentNode)){
+                    if (searchParentNode.left.val == val){
+                        searchParentNode.left = targetNode.left;
+                    }else {
+                        searchParentNode.right = targetNode.left;
+                    }
+                }else {
+                   root = targetNode.left;
+                }
+            }else {
+                if (!Objects.isNull(searchParentNode)){
+                    if (searchParentNode.left.val == val){
+                        searchParentNode.left = targetNode.right;
+                    }else {
+                        searchParentNode.right = targetNode.right;
+                    }
+                }else {
+                    root = targetNode.right;
+                }
+            }
+        }
+
+    }
 
     /**
      * 删除二叉排序中的叶子节点 不是叶子节点删除不了
@@ -112,6 +226,28 @@ class BinarySortTreeNode{
 
     BinarySortTreeNode(int val){
         this.val = val;
+    }
+
+    /**
+     * 找到传入节点最大的值
+     * @return
+     */
+    protected BinarySortTreeNode findMaxNode(){
+        BinarySortTreeNode node = this;
+        while (!Objects.isNull(node.right))
+            node = node.right;
+        return node;
+    }
+
+    /**
+     * 找到传入节点最小的值
+     * @return
+     */
+    protected BinarySortTreeNode findMinNode(){
+        BinarySortTreeNode node = this;
+        while (!Objects.isNull(node.left))
+            node = node.left;
+        return node;
     }
 
     /**
