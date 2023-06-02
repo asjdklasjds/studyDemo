@@ -67,7 +67,7 @@ public class Graph {
 
         while (!queue.isEmpty()){
             // 取出队列的头节点下标
-            u = queue.getFirst();
+            u = queue.removeFirst();
             // 得到第一个邻接节点的下标 w
             w = getFirstNeighbor(u);
             while (w != -1){
