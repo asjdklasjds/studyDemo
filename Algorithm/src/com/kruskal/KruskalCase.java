@@ -145,7 +145,7 @@ public class KruskalCase {
             // 根据传入节点的下标值 获取传入节点的终点
             int m = getEnd(ends, p1);
             int n = getEnd(ends, p2);
-            // 如果不相等则代表终点不相同 这条边可以成立
+            // 如果不相等则代表终点不相同 这条 边可以成立
             if (m != n){
                 ends[m] = n;
                 rest[index++] = edge;
