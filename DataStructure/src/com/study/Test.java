@@ -7,16 +7,17 @@ import java.util.List;
 public class Test {
     public static void main(String[] args) throws Exception {
         Test test = new Test();
-        test.uniquePaths(6,8);
-        List<String> list = new ArrayList<>();
-        list.add("12");
-        list.stream().forEach(e -> {
-            try {
-                test.climbStairs(1);
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        });
+//        test.uniquePaths(6,8);
+//        List<String> list = new ArrayList<>();
+//        list.add("12");
+//        list.stream().forEach(e -> {
+//            try {
+//                test.climbStairs(1);
+//            } catch (Exception ex) {
+//                ex.printStackTrace();
+//            }
+//        });
+        test.doubleNumber();
     }
 
     public int climbStairs(int n) throws Exception {
@@ -48,5 +49,16 @@ public class Test {
             System.out.println(Arrays.toString(dp[i]));
         }
         return dp[m - 1][n - 1];
+    }
+
+    public void doubleNumber(){
+        for (int i = 1;; i++) {
+            String s = String.valueOf(i);
+            String val = s.substring(s.length()-1) + s.substring(0,s.length()-1);
+            if (i == (Integer.valueOf(val) * 2)){
+                System.out.println(Integer.valueOf(val));
+                System.out.println(i);
+            }
+        }
     }
 }
